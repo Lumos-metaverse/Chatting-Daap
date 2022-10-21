@@ -38,7 +38,7 @@ export function App(props) {
       signer = provider.getSigner();
       try {
         const contract = new ethers.Contract(
-          CONTRACT_ADDRESS,
+          "0x7423dA7A7e28cFD578EC530C946cd3eEAdcC22e2",
           contractABI,
           signer
         );
