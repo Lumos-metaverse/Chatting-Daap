@@ -9,11 +9,12 @@ import {
 } from "./components/Components.js";
 import { ethers } from "ethers";
 import { abi } from "./abi";
+// require('dotenv').config();
 
 // Add the contract address inside the quotes
-const CONTRACT_ADDRESS = "";
+const CONTRACT_ADDRESS = process.env.REACT_APP_SMART_CONTRACT_ADDRESS;
 
-export function App(props) {
+export function App() {
   const [friends, setFriends] = useState(null);
   const [myName, setMyName] = useState(null);
   const [myPublicKey, setMyPublicKey] = useState(null);
@@ -38,7 +39,7 @@ export function App(props) {
       signer = provider.getSigner();
       try {
         const contract = new ethers.Contract(
-          "0x7423dA7A7e28cFD578EC530C946cd3eEAdcC22e2",
+          CONTRACT_ADDRESS,
           contractABI,
           signer
         );
