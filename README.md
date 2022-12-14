@@ -1,70 +1,55 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chatting DAPP on Avalanche chain
 
-## Available Scripts
+This is a chatting Daap similar to whatsapp, where you can chatt with your friends by adding their wallet id. All the chatts are stored on block chain which means your chatts are more secure.
 
-In the project directory, you can run:
+![image](https://i.postimg.cc/bwBGxsj0/Screenshot-4.png)
 
-### `npm start`
+![image](https://i.postimg.cc/prCrpdZF/Screenshot-5.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[_Chatting DAAP Hosted link_](https://jade-cupcake-c5c2fe.netlify.app/)
+steps for using chatting dapp
+- configure your metamask for fuji c test net
+- click on connect to metamask button to connect your dapp with fuji c chain
+- click on new chatt button then add your friends public wallet id (configured at fugi chain) and friends name
+- now you can send message to your friends but each transaction will cost gas fees.
 
-### `npm test`
+## How to execute Chatting DAPP locally  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+clone this project locally
 
-### `npm run build`
+install dependencies for react 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ ```sh
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+configuration for adding fugi testnet inside metamask wallet
+ ```sh
+    Network Name: Avalanche FUJI C-Chain
+    New RPC URL: https://api.avax-test.network/ext/bc/C/rpc
+    ChainID: 43113
+    Symbol: AVAX
+    Explorer: https://testnet.snowtrace.io/
+```
+Since we are using block chain we need to pay tokens for sending every message because every activity on blockchain costs some token.Now we will bring some test tokens for avalanche network by using faucet, where we have to add our wallet address and request for avax coin.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ ```sh
+https://faucet.avax.network/
+```
 
-### `npm run eject`
+Now start the react project which we have cloned locally
+ ```sh
+npm start
+```
+Now we can use this chatting dapp at http://localhost:3000/ 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+connect your metamask wallet by pressing on connect to metamask button. we have already configured our wallet with fugi c chain so after pressing on, connect to metamask button, metamask will connect our daap with fuji c chain.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Now we need to add our friends name and public wallet address by pressing on add new chat button
+(friends wallet need to be configured at fugi c chain).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+for chatting with your friend we need to pay gas fees every time we send a message. When ever we send any message to any friend, our metamask will open with a transaction detail and ask for approval.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_you can find a .env file which consists deployed smart contract address. you can change it by deploying it by your self_
