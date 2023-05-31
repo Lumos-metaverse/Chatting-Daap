@@ -7,8 +7,9 @@ import {
   Message,
   AddNewChat,
 } from "./components/Components.js";
-import { ethers } from "ethers";
 import { abi } from "./abi";
+import { ethers } from "ethers";
+
 // require('dotenv').config();
 
 // Add the contract address inside the quotes
@@ -35,8 +36,8 @@ export function App() {
   async function login() {
     let res = await connectToMetamask();
     if (res === true) {
-      provider = new ethers.providers.Web3Provider(window.ethereum);
-      signer = provider.getSigner();
+      provider = new ethers.BrowserProvider(window.ethereum);
+      signer = await provider.getSigner();
       try {
         const contract = new ethers.Contract(
           CONTRACT_ADDRESS,
@@ -58,6 +59,7 @@ export function App() {
         setShowConnectButton("none");
       } catch (err) {
         alert("CONTRACT_ADDRESS not set properly!");
+        console.log(err)
       }
     } else {
       alert("Couldn't connect to Metamask");
@@ -178,6 +180,7 @@ export function App() {
   return (
     <Container style={{ padding: "0px", border: "1px solid grey" }}>
       {/* This shows the navbar with connect button */}
+      {console.log(process.env.REACT_APP_SMART_CONTRACT_ADDRESS)}
       <NavBar
         username={myName}
         login={async () => login()}
